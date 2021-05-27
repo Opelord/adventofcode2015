@@ -1,16 +1,26 @@
+import hashlib
+
+
 def data_prep():
     data = []
-    with open('data_number.txt') as f:
-        data = data
+    with open('data4.txt') as f:
+        data = f.read()
 
     return data
 
 
-def part1():
+def part1(n):
     data = data_prep()
-    return 0
+
+    ans = 0
+    while True:
+        result = hashlib.md5((data+str(ans)).encode())
+        if result.hexdigest()[:n] == n*'0':
+            break
+        ans += 1
+
+    return ans
 
 
 def part2():
-    data = data_prep()
-    return 0
+    return part1(6)

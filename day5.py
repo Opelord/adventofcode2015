@@ -1,6 +1,6 @@
 def data_prep():
     data = []
-    with open('data_number.txt') as f:
+    with open('data5.txt') as f:
         data = data
 
     return data
